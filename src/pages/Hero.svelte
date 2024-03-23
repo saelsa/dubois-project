@@ -10,8 +10,12 @@
 			Du Bois Challenge 2024.
 		</h1>
 		<h2 class="text-xl sm:text-2xl md:text-3xl text-center max-w-[1000px] mx-auto w-full">
-			Weekly challenge to recreate data visualizations of the civil rights
-			activist Du Bois.
+			<a
+				href="https://www.datavisualizationsociety.org/news/2024/2/2/advance-your-data-viz-skills-with-the-weekly-2024-du-bois-visualization-challenge"
+				target="_blank"
+				class="underline hover:bg-[rgb(255,215,0)]"
+				>Weekly challenge</a
+			> to recreate data visualizations of the civil rights activist Du Bois organized by DVS .
 		</h2>
 	</div>
 </Section>

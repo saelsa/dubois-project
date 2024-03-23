@@ -22,3 +22,8 @@ h1, h2, .mulish {
     max-width: 1200px;
   }
 
+a, span {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
