@@ -8,16 +8,12 @@
 </div>
 
 <style>
-	.contentMain {
-		filter: drop-shadow(-1px 4px 2px rgba(0, 0, 0, 0.4));
-	}
-
 	.contentBox {
 		height: auto;
 		overflow: hidden;
 		width: 100%;
 		padding: 20px;
-		background: #d2b48c;
+		background: rgb(210,180,140, 30%);
 		clip-path: polygon(
 			0% 0.5%,
 			3% 0,

@@ -8,10 +8,17 @@ html {
 
 * {
     font-family: "Public Sans", sans-serif;
+    font-weight: 300;
 }
 
-h1, h2, h3, .mulish {
+h1, h2, .mulish {
     font-family: 'Electrolize', sans-serif;
     text-transform: uppercase;
 }
+
+:global(.chart) {
+    width: 100%;
+    min-width: 600px;
+    max-width: 1200px;
+  }
 
