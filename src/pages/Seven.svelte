@@ -10,7 +10,7 @@
 
 	let parsedData;
 	onMount(async () => {
-		const text = await d3.text('http://localhost:5173/challenge_07_data.csv');
+		const text = await d3.text('/challenge_07_data.csv');
 		parsedData = d3.csvParseRows(text, (d, i) => {
 			return {
 				name: d[0],
