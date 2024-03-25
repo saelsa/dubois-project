@@ -18,7 +18,7 @@
 		.range([0, innerWidth]);
 </script>
 
-<svg viewBox={`0 0 ${width} ${height}`}>
+<svg viewBox={`0 0 ${width} ${height}`} {width} {height} >
 	<defs>
 		<!-- <filter
 			id="nnnoise-filter"
