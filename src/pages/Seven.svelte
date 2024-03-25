@@ -1,29 +1,17 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import Plate from '../components/Plate.svelte';
-	import * as d3 from 'd3';
 	import BarChart from '../components/BarChart.svelte';
+
+	import rawData from "$lib/data/challenge7"
 
 	let width = 800;
 	let height = 1000;
 
-	let parsedData;
-	onMount(async () => {
-		const text = await d3.text('/challenge_07_data.csv');
-		parsedData = d3.csvParseRows(text, (d, i) => {
-			return {
-				name: d[0],
-				value: +d[1]
-			};
-		});
-	});
-
 	$: data =
-		parsedData &&
-		parsedData.map((d) => ({
+		rawData &&
+		rawData.map((d) => ({
 			...d,
-			color: d.name === 'Negroes, U.S.A.' ? 'rgb(220, 20, 60)' : 'rgb(0, 128, 0)'
+			color: d.name === 'Negroes, U.S.A.' ? 'rgb(220, 20, 60)' : '#0d7a4a'
 		}));
 </script>
 

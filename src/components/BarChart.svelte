@@ -76,6 +76,7 @@
 					width={xScale(d.value)}
 					height={yScale.bandwidth()}
 					fill={d.color}
+					class="stroke-black "
 				/>
 				<rect
 					x="0"
