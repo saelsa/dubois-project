@@ -20,7 +20,7 @@
 
 <svg viewBox={`0 0 ${width} ${height}`}>
 	<defs>
-		<filter
+		<!-- <filter
 			id="nnnoise-filter"
 			x="0"
 			y="0%"
@@ -56,7 +56,7 @@
 			>
 				<feDistantLight azimuth="3" elevation="8"></feDistantLight>
 			</feSpecularLighting>
-		</filter>
+		</filter> -->
 	</defs>
 
 	<g transform={`translate(${margin.left},${margin.top})`}>
@@ -78,14 +78,14 @@
 					fill={d.color}
 					class="stroke-black "
 				/>
-				<rect
+				<!-- <rect
 					x="0"
 					y={yScale(d.name)}
 					width={xScale(d.value)}
 					height={yScale.bandwidth()}
 					fill="#ffffff"
 					filter="url(#nnnoise-filter)"
-				/>
+				/> -->
 			</g>
 		{/each}
 	</g>
