@@ -27,7 +27,6 @@
 		.scaleOrdinal()
 		.domain(['slaves', 'free', 'tenants', 'peasants'])
 		.range(['#282723', '#207246', '#207246', '#d21542']);
-
 </script>
 
 <Plate>
@@ -143,6 +142,7 @@
 										stroke="black"
 										stroke-width="0.5"
 										filter={`url(#verticalTexture${stackedSeries1860[0].key})`}
+										fill={colorScale(stackedSeries1860[0].key)}
 									/>
 									<text
 										class="mulish font-black text-[20px]"
@@ -185,6 +185,7 @@
 										stroke="black"
 										stroke-width="0.5"
 										filter={`url(#verticalTexture${stackedSeries1860[1].key})`}
+										fill={colorScale(stackedSeries1860[1].key)}
 									/>
 									<text
 										class="mulish font-black text-[20px]"
@@ -259,6 +260,7 @@
 										stroke="black"
 										stroke-width="0.5"
 										filter={`url(#verticalTexture${stackedSeries1890[0].key})`}
+										fill={colorScale(stackedSeries1890[0].key)}
 									/>
 
 									<text
@@ -299,6 +301,7 @@
 										stroke="black"
 										stroke-width="0.5"
 										filter={`url(#verticalTexture${stackedSeries1890[1].key})`}
+										fill={colorScale(stackedSeries1890[1].key)}
 									/>
 									<text
 										class="mulish font-black"
