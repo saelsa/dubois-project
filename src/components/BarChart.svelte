@@ -24,7 +24,7 @@
 			<defs>
 				<filter id="{`texture${i}`}" x="0%" y="0%" width="100%" height="100%">
 					<feTurbulence baseFrequency="0.01 0.1" result="NOISE" type="fractalNoise" numOctaves="1" seed="{i}"/>
-					<feDiffuseLighting in="noise" lighting-color="{d.color}" surfaceScale="5">
+					<feDiffuseLighting in="NOISE" lighting-color="{d.color}" surfaceScale="5">
 						<feDistantLight azimuth="45" elevation="80" />
 					</feDiffuseLighting>
 				</filter>

@@ -126,6 +126,32 @@
 												<feDistantLight azimuth="45" elevation="80" />
 											</feDiffuseLighting>
 										</filter>
+																		<defs>
+									{#each stackedSeries1860 as series, i}
+										<filter
+											id={`verticalTexture${series.key}`}
+											x="0%"
+											y="0%"
+											width="100%"
+											height="100%"
+										>
+											<feTurbulence
+												baseFrequency="0.2 0.01"
+												result="NOISE"
+												type="fractalNoise"
+												numOctaves={i + 1}
+												seed={Math.random()}
+											/>
+											<feDiffuseLighting
+												in="NOISE"
+												lighting-color={colorScale(series.key)}
+												surfaceScale="5"
+											>
+												<feDistantLight azimuth="45" elevation="80" />
+											</feDiffuseLighting>
+										</filter>
+									{/each}
+								</defs>
 									{/each}
 								</defs>
 
@@ -141,7 +167,7 @@
 											yScale1860(stackedSeries1860[0][0][1])}
 										stroke="black"
 										stroke-width="0.5"
-										filter={`url(#verticalTexture${stackedSeries1860[0].key})`}
+filter={`url(#verticalTexture${stackedSeries1860[0].key})`}
 										fill={colorScale(stackedSeries1860[0].key)}
 									/>
 									<text
@@ -236,7 +262,7 @@
 												seed={Math.random()}
 											/>
 											<feDiffuseLighting
-												in="noise"
+												in="NOISE"
 												lighting-color={colorScale(series.key)}
 												surfaceScale="5"
 											>
