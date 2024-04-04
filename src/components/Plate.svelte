@@ -12,7 +12,7 @@
 		height: auto;
 		overflow: hidden;
 		width: 100%;
-		padding: 20px;
+		padding: 10px;
 		background: rgb(210,180,140, 30%);
 		clip-path: polygon(
 			0% 0.5%,

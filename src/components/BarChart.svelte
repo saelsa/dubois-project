@@ -18,75 +18,38 @@
 		.range([0, innerWidth]);
 </script>
 
-<svg viewBox={`0 0 ${width} ${height}`} {width} {height} >
-	<defs>
-		<!-- <filter
-			id="nnnoise-filter"
-			x="0"
-			y="0%"
-			width="90%"
-			height="90%"
-			filterUnits="objectBoundingBox"
-			primitiveUnits="userSpaceOnUse"
-			color-interpolation-filters="linearRGB"
-		>
-			<feTurbulence
-				type="fractalNoise"
-				baseFrequency="0.05"
-				numOctaves="4"
-				seed="15"
-				stitchTiles="stitch"
-				x="0%"
-				y="0%"
-				width="100%"
-				height="100%"
-				result="turbulence"
-			></feTurbulence>
-			<feSpecularLighting
-				surfaceScale="5"
-				specularConstant="0.7"
-				specularExponent="20"
-				lighting-color="#ffffff"
-				x="0%"
-				y="0%"
-				width="100%"
-				height="100%"
-				in="turbulence"
-				result="specularLighting"
-			>
-				<feDistantLight azimuth="3" elevation="8"></feDistantLight>
-			</feSpecularLighting>
-		</filter> -->
-	</defs>
+<svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" width="100%" height="100%">
+		<g transform={`translate(${margin.left},${margin.top})`}>
+			{#each data as d, i}
+			<defs>
+				<filter id="{`texture${i}`}" x="0%" y="0%" width="100%" height="100%">
+					<feTurbulence baseFrequency="0.01 0.1" result="NOISE" type="fractalNoise" numOctaves="1" seed="{i}"/>
+					<feDiffuseLighting in="noise" lighting-color="{d.color}" surfaceScale="5">
+						<feDistantLight azimuth="45" elevation="80" />
+					</feDiffuseLighting>
+				</filter>
+			</defs>
+				<g class="mb-10">
+					<text
+						class="font-thin"
+						x={-margin.left}
+						dy=".32em"
+						y={yScale(d.name) + yScale.bandwidth() / 2}
+					>
+						{d.name}
+					</text>
+					<rect
+						x="0"
+						y={yScale(d.name)}
+						width={xScale(d.value)}
+						height={yScale.bandwidth()}
+						fill={d.color}
+						class="stroke-black"
+						filter={`url(#texture${i})`}
 
-	<g transform={`translate(${margin.left},${margin.top})`}>
-		{#each data as d}
-			<g class="mb-10">
-				<text
-					class="font-thin"
-					x={-margin.left}
-					dy=".32em"
-					y={yScale(d.name) + yScale.bandwidth() / 2}
-				>
-					{d.name}
-				</text>
-				<rect
-					x="0"
-					y={yScale(d.name)}
-					width={xScale(d.value)}
-					height={yScale.bandwidth()}
-					fill={d.color}
-					class="stroke-black "
-				/>
-				<!-- <rect
-					x="0"
-					y={yScale(d.name)}
-					width={xScale(d.value)}
-					height={yScale.bandwidth()}
-					fill="#ffffff"
-					filter="url(#nnnoise-filter)"
-				/> -->
-			</g>
-		{/each}
-	</g>
-</svg>
+					/>
+				</g>
+			{/each}
+		</g>
+	</svg
+>

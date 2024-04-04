@@ -13,9 +13,16 @@
 			<a
 				href="https://www.datavisualizationsociety.org/news/2024/2/2/advance-your-data-viz-skills-with-the-weekly-2024-du-bois-visualization-challenge"
 				target="_blank"
-				class="underline hover:bg-[rgb(255,215,0)]"
-				>Weekly challenge</a
+				class="underline hover:bg-[rgb(255,215,0)]">Weekly challenge</a
 			> to recreate data visualizations of the civil rights activist Du Bois organized by DVS .
 		</h2>
 	</div>
 </Section>
+
+<style>
+	.bird-cage {
+		height: 100px;
+		width: 100px;
+		border: 1px solid green;
+	}
+</style>

@@ -21,8 +21,7 @@
 			<h3 class="text-2xl font-thin">
 				Illiteracy of the American Negroes compared with that of other nations.
 			</h3>
-			<div class="w-1/5 h-[1px] bg-slate-400"></div>
-			<p class="text-base font-thin">
+			<div class="w-1/5 h-[1px] bg-slate-400"></div><p class="text-base font-thin">
 				Proportion d' illettrés parmi les Nègres Americains comparée à celle des autres nations.
 			</p>
 			<div class="w-1/5 h-[1px] bg-slate-400"></div>
