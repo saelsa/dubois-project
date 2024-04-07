@@ -1,5 +1,5 @@
 <script>
-	import Section from '../components/Section.svelte';
+	import Section from '../molecules/Section.svelte';
 </script>
 
 <Section id="hero">
@@ -18,11 +18,3 @@
 		</h2>
 	</div>
 </Section>
-
-<style>
-	.bird-cage {
-		height: 100px;
-		width: 100px;
-		border: 1px solid green;
-	}
-</style>

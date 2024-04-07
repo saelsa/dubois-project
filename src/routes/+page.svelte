@@ -1,7 +1,6 @@
 <script>
-	import Section from '../components/Section.svelte';
-	import Green from '../pages/Green.svelte';
-	import Hero from '../pages/Hero.svelte';
+	import Green from '../components/organisms/Green.svelte';
+	import Hero from '../components/organisms/Hero.svelte';
 </script>
 
 <main class="bg-[#faf0e6]">

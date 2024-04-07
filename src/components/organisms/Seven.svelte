@@ -1,6 +1,6 @@
 <script>
-	import Plate from '../components/Plate.svelte';
-	import BarChart from '../components/BarChart.svelte';
+	import Plate from '../molecules/Plate.svelte';
+	import BarChart from '../molecules/BarChart.svelte';
 
 	import rawData from "$lib/data/challenge7"
 

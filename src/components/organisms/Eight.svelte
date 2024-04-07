@@ -1,8 +1,8 @@
 <script>
 	import * as d3 from 'd3';
 
-	import Plate from '../components/Plate.svelte';
-
+	import Plate from '../molecules/Plate.svelte';
+	
 	import { data, translations } from '$lib/data/challenge8';
 
 	let width = 500;
