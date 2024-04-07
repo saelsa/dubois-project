@@ -1,5 +1,13 @@
 <script>
-	import { extent, stack, scaleLinear, scaleOrdinal, area } from 'd3';
+	import {
+		extent,
+		stack,
+		scaleLinear,
+		scaleOrdinal,
+		area,
+		line,
+		curveMonotoneX as curve
+	} from 'd3';
 	import Plate from '../molecules/Plate.svelte';
 
 	import data from '$lib/data/challenge9';
@@ -15,17 +23,24 @@
 	const stackGenerator = stack().keys(['slave', 'free']);
 	const stackedSeries = stackGenerator(data);
 
-	const xScale = scaleLinear()
+	$: xScale = scaleLinear()
 		.domain(extent(data, (d) => d.year))
 		.range([margin.left + margin.right, innerWidth]);
-	const yScale = scaleLinear().domain([0, 100]).range([innerHeight, margin.top]);
 
-	const colorScale = scaleOrdinal().domain(['slave', 'free']).range(['#282723', '#207246']);
+	$: yScale = scaleLinear().domain([0, 100]).range([innerHeight, margin.top]);
 
-	const areaGenerator = area()
+	$: colorScale = scaleOrdinal().domain(['slave', 'free']).range(['#282723', '#207246']);
+
+	$: areaGenerator = area()
 		.x((d) => xScale(d.data.year))
 		.y0((d) => yScale(d[0]))
-		.y1((d) => yScale(d[1]));
+		.y1((d) => yScale(d[1]))
+		.curve(curve);
+
+	$: lineGenerator = line()
+		.x((d) => xScale(d.year))
+		.y((d) => yScale(d.slave))
+		.curve(curve);
 </script>
 
 <Plate>
@@ -40,9 +55,12 @@
 			<p class="text-[10px] font-bold mulish mb-6">Done by Atlanta University .</p>
 		</div>
 		<svg viewBox={`0 0 ${width} ${height}`} width="100%" height="100%">
+			<!-- area -->
 			{#each stackedSeries as series}
 				<path d={areaGenerator(series)} fill={colorScale(series.key)} />
 			{/each}
+			<!-- line for smoother edges -->
+			<path d={lineGenerator(data)} fill="none" stroke="#282723" stroke-width="1" />
 
 			<!-- label -->
 			{#each data as dataPoint}
@@ -67,16 +85,22 @@
 							stroke="#282723"
 							stroke-width="0.2"
 						/>
-						<text class="mulish font-bold text-sm" y="-2" dx="-14"
-							>{tick}</text
-						>
+						<text class="mulish font-bold text-sm" y="-2" dx="-14">{tick}</text>
 					</g>
 				{/each}
 			</g>
 			<!-- title -->
 			<text class="mulish" x={innerWidth / 2} y={45} dx={-25}>Free - Libre</text>
-			<text class="mulish text-xl fill-[#eedecb] " x={innerWidth / 2} y={innerHeight /2} dx={-20}>Slaves</text>
-			<text class="mulish text-xl fill-[#eedecb]" x={innerWidth / 2} y={innerHeight /2} dx={-30} dy={20}>Esclaves</text>
-        </svg>
+			<text class="mulish text-xl fill-[#eedecb]" x={innerWidth / 2} y={innerHeight / 2} dx={-20}
+				>Slaves</text
+			>
+			<text
+				class="mulish text-xl fill-[#eedecb]"
+				x={innerWidth / 2}
+				y={innerHeight / 2}
+				dx={-30}
+				dy={20}>Esclaves</text
+			>
+		</svg>
 	</div>
 </Plate>
