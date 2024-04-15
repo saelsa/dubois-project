@@ -4,7 +4,7 @@
 	import Plate from '../molecules/Plate.svelte';
 
 	import geoJson from '$lib/data/us-states.json';
-	import { data } from '$lib/data/challenge10';
+	import { data, translations } from '$lib/data/challenge10';
 
 	let width = 500;
 	let height = 700;
@@ -228,9 +228,9 @@
 
 			<!-- Pie Chart -->
 			<svg
-				x={margin.left}
+				x={0}
 				y="330"
-				width={innerWidth}
+				width={width}
 				height={pieHeight}
 				viewBox="{-pieWidth / 2}, {-pieHeight / 2}, {pieWidth}, {pieHeight}"
 				style:max-width="100%"
@@ -259,14 +259,30 @@
 				<!-- legend -->
 				<g transform="translate(-215, -90)">
 					{#each data as item, i}
-						<circle cx="0" cy={10 + i * 20} r="8" fill={pieColors(item.occupation)} stroke="black" stroke-width="0.5" />
-						<text class="mulish text-[9px]" x="15" y={13 + i * 20}>{item.occupation}</text>
+						<circle
+							cx="0"
+							cy={10 + i * 20}
+							r="8"
+							fill={pieColors(item.occupation)}
+							stroke="black"
+							stroke-width="0.5"
+						/>
+						<text class="mulish text-[7px]" x="12" y={13 + i * 20}>{item.occupation}</text>
 					{/each}
 				</g>
-                <g transform="translate(220, -90)">
+				<g transform="translate(240, -90)">
 					{#each data as item, i}
-						<circle cx="0" cy={10 + i * 20} r="8" fill={pieColors(item.occupation)} stroke="black" stroke-width="0.5" />
-						<text class="mulish text-[9px]" text-anchor="end" x="-15" y={13 + i * 20}>{item.occupation}</text>
+						<circle
+							cx="0"
+							cy={10 + i * 20}
+							r="8"
+							fill={pieColors(item.occupation)}
+							stroke="black"
+							stroke-width="0.5"
+						/>
+						<text class="mulish text-[7px]" fill="#c09c8a" text-anchor="end" x="-12" y={13 + i * 20}
+							>{translations[item.occupation]}</text
+						>
 					{/each}
 				</g>
 			</svg>
@@ -275,7 +291,7 @@
 					<text class="mulish text-[9px]" x="20" y={550 + i * 10}>{textPart}</text>
 				{/each}
 				{#each backgroundFr as textPart, i}
-					<text class="mulish text-[9px]" x="20" y={620 + i * 10}>{textPart}</text>
+					<text class="mulish text-[9px]" fill="#c09c8a" x="20" y={620 + i * 10}>{textPart}</text>
 				{/each}
 			</g>
 		</svg>
